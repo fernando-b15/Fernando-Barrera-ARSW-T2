@@ -16,5 +16,12 @@ public class HttpConnectionService {
                 .asString();
         return response.getBody();
     }
+    public String getCovid19sAllCountries() throws UnirestException{
+        HttpResponse<String> response = Unirest.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats")
+                .header("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com")
+                .header("x-rapidapi-key", "fe3b8f1042msh1ed0bfa435a69aep1ca144jsnfeb70957f448")
+                .asString();
+        return response.getBody();
+    }
 
 }
