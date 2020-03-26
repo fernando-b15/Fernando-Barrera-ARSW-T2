@@ -67,12 +67,23 @@ public class CoronavirusStatsService {
                 return coronavirusStatsCache.getRegisterByCountry(country);
             }
             else{
+                JSONArray intentodegsonconcoord = new JSONArray();
                 res = httpConnectionService.getCovid19ByCountry(country);
                 JSONObject tempo = new JSONObject(res);
                 JSONObject data = new JSONObject(tempo.get("data").toString());
                 JSONArray covid19array = new JSONArray(data.get("covid19Stats").toString());
-                coronavirusStatsCache.SaveRegisterByCountry(country,covid19array.toString());
-                return covid19array.toString();
+                String intentocoor = httpConnectionService.getCoordenadas(country);
+                JSONArray coords = new JSONArray(intentocoor);
+                JSONObject coordenadas = new JSONObject(coords.get(0).toString());
+                JSONArray latlng = new JSONArray(coordenadas.get("latlng").toString());
+                for(int i=0; i<covid19array.length();i++){
+                    JSONObject tempo15 = (JSONObject) covid19array.get(i);
+                    tempo15.put("coordenadas",new JSONObject("{\"latitud\":"+latlng.get(0).toString()+",\"longitud\":"+latlng.get(1).toString()+"}"));
+                    intentodegsonconcoord.put(tempo15);
+                }
+                System.out.println(latlng.toString());
+                coronavirusStatsCache.SaveRegisterByCountry(country,intentodegsonconcoord.toString());
+                return intentodegsonconcoord.toString();
             }
            
           

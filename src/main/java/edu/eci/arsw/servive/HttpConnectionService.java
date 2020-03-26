@@ -7,6 +7,13 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 @Service
 public class HttpConnectionService {
+    public String getCoordenadas(String country) throws UnirestException{
+        HttpResponse<String> response = Unirest.get("https://restcountries-v1.p.rapidapi.com/name/"+country)
+                .header("x-rapidapi-host", "restcountries-v1.p.rapidapi.com")
+                .header("x-rapidapi-key", "0e72bcd144msh8951afd83016cbbp115df0jsnf8ca2e9da0ec")
+                .asString();
+        return response.getBody();
+    }
 
     public String getCovid19ByCountry(String country) throws UnirestException {
     	System.out.println("llega");

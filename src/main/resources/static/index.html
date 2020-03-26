@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="js/apiclient.js"></script>
     <script src="js/app.js"></script>
+	<script src="js/map.js"></script>
+	<link rel="stylesheet" href="js/estilo.css"/>
 
 	<center>
 		<h1 style="font-size:300%; font-family: 'CavoliniW15-CondensedBoldIt'; "> Cases Covid19 In The world </h1>
@@ -40,16 +42,13 @@
         <div class="col">
             <label for="country" value="Country"></label>
             <input id="country" type="text">
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-success" onclick="app.createtablebycountry(country.value)">Buscar</button>
+			<button type="button" class="btn btn-success" onclick="app.createtablebycountry(country.value)">Buscar</button>
             <br>
         </div>
 
-        <br>
-
     </div>
 	<div class="row">
+		<div class="col"><div id="map"></div></div>
         <div class="col">
             <table class="table">
                 <thread>

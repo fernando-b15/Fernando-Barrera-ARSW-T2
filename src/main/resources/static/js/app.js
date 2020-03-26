@@ -30,13 +30,14 @@
             deaths+=element.deaths;
             recovered+=element.recovered;
             confirmed+=element.confirmed;
-            var fila1 = '<tr class="table-success"> <td>'+ element.province +'</td> <td>'+element.confirmed+'</td> <td>'+ element.deaths +'</td> <td>'+ element.recovered +'</td> </tr>';
+            var fila1 = '<tr class="table-success"> <td>'+ element.province +'</td> <td>'+element.deaths+'</td> <td>'+ element.confirmed +'</td> <td>'+ element.recovered +'</td> </tr>';
             $("#table5").append(fila1);
         })
 		$("#table2").empty();
         $("#table2").append('<tr class="table-success"> <td>Num Deaths</td> <td>'+deaths+'</td> </tr>');
         $("#table2").append('<tr class="table-success">> <td>Num Infected</td> <td>'+confirmed+'</td> </tr>');
         $("#table2").append('<tr class="table-success">> <td>Num Cured</td> <td>'+recovered+'</td> </tr>');
+		plotMarkers(lista2);
 
     });
 return{

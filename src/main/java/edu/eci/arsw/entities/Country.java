@@ -18,6 +18,7 @@ public class Country {
     private int recovered;
     private String country;
     private JSONObject jsonObject;
+    private location coor;
 
 
     public Country(JSONObject jsonObject){
@@ -75,5 +76,14 @@ public class Country {
     public void setRecovered(int recovered) {
         this.recovered+= recovered;
     }
+
+    public location getCoor() {
+        return coor;
+    }
+
+    public void setCoor(location coor) {
+        this.coor = coor;
+    }
+    
     
 }
