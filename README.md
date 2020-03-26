@@ -1,5 +1,7 @@
 # Escuela Colombiana de Ingeniería Julio Garavito - Arquitecturas de Software ARSW - Parcial Segundo Tercio
 
+[Link Despliegue Heroku](https://fernando-barrera-arsw-t2.herokuapp.com/)
+[Link Repositorio](https://github.com/fernando-b15/Fernando-Barrera-ARSW-T2)
 ## Preparación para el Parcial
 
 Con el objetivo de preparar el examen final del segundo tercio, por favor siga las siguientes instrucciones.
