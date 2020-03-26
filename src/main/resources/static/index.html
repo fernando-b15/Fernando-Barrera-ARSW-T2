@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Covid19API</title>
     <meta charset="UTF-8">
@@ -35,6 +35,48 @@
             <tbody id ="table1" onload="app.createTable"></tbody>
         </table>
 	</div>
+	<div class="row">
+
+        <div class="col">
+            <label for="country" value="Country"></label>
+            <input id="country" type="text">
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-success" onclick="app.createtablebycountry(country.value)">Buscar</button>
+            <br>
+        </div>
+
+        <br>
+
+    </div>
+	<div class="row">
+        <div class="col">
+            <table class="table">
+                <thread>
+                    <tr class="table-warning">
+                        <th scope="col">Country</th>
+                        <th scope="col">Number</th>
+                    </tr>
+                </thread>
+                <tbody id ="table2"></tbody>
+            </table>
+        </div>
+    </div>
+	 <div class="row">
+        <div class="col">
+            <table class="table">
+                <thread>
+                    <tr class="table-warning">
+                        <th scope="col">Region</th>
+                        <th scope="col">Num Deaths</th>
+                        <th scope="col">Num Infected</th>
+                        <th scope="col">Num Cured</th>
+                    </tr>
+                </thread>
+                <tbody id ="table5"></tbody>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>	
