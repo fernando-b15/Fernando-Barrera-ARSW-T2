@@ -26,11 +26,11 @@ public class Covid19API{
     }
     /**
     @Bean
-    public CommandLineRunner demo(Covid19APIService service) {
+    public CommandLineRunner demo(CoronavirusStatsService service) {
       return (args) -> {
-          System.out.println(service.getCovidAllCountries());
+          service.getCovidAllCountries();
         };   
     }
-    */
+    **/
     
 }

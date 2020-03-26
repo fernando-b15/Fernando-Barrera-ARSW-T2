@@ -5,10 +5,15 @@
  */
 package edu.eci.arsw.cache;
 
+import java.time.LocalDateTime;
+import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author jm_14
  */
+@Service
 public class CoronavirusStatsCache {
-    
+ 
 }
