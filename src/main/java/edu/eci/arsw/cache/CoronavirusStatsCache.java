@@ -15,5 +15,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CoronavirusStatsCache {
- 
+    ConcurrentHashMap<String,String> cache;
+
+    public CoronavirusStatsCache(){
+        cache = new ConcurrentHashMap<>();
+    }
+    public void SaveRegisterByCountry(String key,String data){
+        cache.put(key,data);
+    }
+    public String getRegisterByCountry(String key){
+
+        return cache.get(key);
+    }
+    public boolean isInCache(String key){
+        return cache.containsKey(key);
+    }
 }
+

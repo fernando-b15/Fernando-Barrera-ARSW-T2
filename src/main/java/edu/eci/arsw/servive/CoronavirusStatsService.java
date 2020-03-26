@@ -6,6 +6,7 @@
 package edu.eci.arsw.servive;
 
 import com.mashape.unirest.http.exceptions.UnirestException;
+import edu.eci.arsw.cache.CoronavirusStatsCache;
 import edu.eci.arsw.entities.Country;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -23,6 +24,8 @@ import org.springframework.stereotype.Service;
 public class CoronavirusStatsService {
     @Autowired
     HttpConnectionService httpConnectionService;
+    @Autowired
+    CoronavirusStatsCache coronavirusStatsCache;
     public String getCovidAllCountries(){
         String res=null;
         try {
@@ -47,6 +50,7 @@ public class CoronavirusStatsService {
               JSONArray listafinal = new JSONArray();
               for(String sel:sumprovin.keySet()){
                   listafinal.put((sumprovin.get(sel)).getCountryObj());
+                  coronavirusStatsCache.SaveRegisterByCountry(sel,((sumprovin.get(sel)).getCountryObj()).toString());
               } 
               return listafinal.toString();
               
@@ -58,11 +62,19 @@ public class CoronavirusStatsService {
     }
     public String getCovidByCountry(String country){   
         try {
-            String res = httpConnectionService.getCovid19ByCountry(country);
-            JSONObject tempo = new JSONObject(res);
-            JSONObject data = new JSONObject(tempo.get("data").toString());
-            JSONArray covid19array = new JSONArray(data.get("covid19Stats").toString());
-            return covid19array.toString();
+            String res=null;
+            if(coronavirusStatsCache.isInCache(country)){
+                System.out.println("si esta en cache");
+                return coronavirusStatsCache.getRegisterByCountry(country);
+            }
+            else{
+                res = httpConnectionService.getCovid19ByCountry(country);
+                JSONObject tempo = new JSONObject(res);
+                JSONObject data = new JSONObject(tempo.get("data").toString());
+                JSONArray covid19array = new JSONArray(data.get("covid19Stats").toString());
+                return covid19array.toString();
+            }
+           
           
         }
         catch (UnirestException ex) {

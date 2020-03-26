@@ -1,4 +1,5 @@
 package edu.eci.arsw;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.eci.arsw.cache.CoronavirusStatsCache;
 import edu.eci.arsw.servive.CoronavirusStatsService;
 import edu.eci.arsw.servive.HttpConnectionService;
 
@@ -15,7 +17,8 @@ import edu.eci.arsw.servive.HttpConnectionService;
 @ComponentScan("edu.eci.arsw")
 
 public class Covid19API{
-
+	@Autowired
+	CoronavirusStatsService coronavirusStatsService;
     @RequestMapping("/")
     public String images(){
         return "index";
@@ -26,11 +29,15 @@ public class Covid19API{
     }
     /**
     @Bean
-    public CommandLineRunner demo(CoronavirusStatsService service) {
+    public CommandLineRunner demo(CoronavirusStatsCache service) {
       return (args) -> {
-          service.getCovidAllCountries();
+    	  System.out.println(service.isInCache("Canada"));
+    	  coronavirusStatsService.getCovidAllCountries();
+    	  System.out.println(coronavirusStatsService.getCovidByCountry("Canada"));
         };   
     }
-    **/
+    */
     
+    
+        
 }
