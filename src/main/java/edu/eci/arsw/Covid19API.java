@@ -19,10 +19,7 @@ import edu.eci.arsw.servive.HttpConnectionService;
 public class Covid19API{
 	@Autowired
 	CoronavirusStatsService coronavirusStatsService;
-    @RequestMapping("/")
-    public String images(){
-        return "index";
-    }
+
 
     public static void main(String[] args) {
         SpringApplication.run(Covid19API.class, args);
