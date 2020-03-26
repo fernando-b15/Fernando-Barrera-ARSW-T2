@@ -50,7 +50,6 @@ public class CoronavirusStatsService {
               JSONArray listafinal = new JSONArray();
               for(String sel:sumprovin.keySet()){
                   listafinal.put((sumprovin.get(sel)).getCountryObj());
-                  coronavirusStatsCache.SaveRegisterByCountry(sel,((sumprovin.get(sel)).getCountryObj()).toString());
               } 
               return listafinal.toString();
               
@@ -72,6 +71,7 @@ public class CoronavirusStatsService {
                 JSONObject tempo = new JSONObject(res);
                 JSONObject data = new JSONObject(tempo.get("data").toString());
                 JSONArray covid19array = new JSONArray(data.get("covid19Stats").toString());
+                coronavirusStatsCache.SaveRegisterByCountry(country,covid19array.toString());
                 return covid19array.toString();
             }
            

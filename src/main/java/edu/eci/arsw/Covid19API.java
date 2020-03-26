@@ -27,17 +27,24 @@ public class Covid19API{
     public static void main(String[] args) {
         SpringApplication.run(Covid19API.class, args);
     }
-    /**
+ /*
     @Bean
     public CommandLineRunner demo(CoronavirusStatsCache service) {
       return (args) -> {
     	  System.out.println(service.isInCache("Canada"));
-    	  coronavirusStatsService.getCovidAllCountries();
     	  System.out.println(coronavirusStatsService.getCovidByCountry("Canada"));
+    	  System.out.println(service.isInCache("Canada"));
+    	  System.out.println(service.isInCache("Colombia"));
+    	  coronavirusStatsService.getCovidAllCountries();
+    	  System.out.println(service.isInCache("Colombia"));
+    	  System.out.println(coronavirusStatsService.getCovidByCountry("Colombia"));
+    	  System.out.println(service.isInCache("Colombia"));
+    	  
+    	  
         };   
     }
-    */
     
+    */
     
         
 }
