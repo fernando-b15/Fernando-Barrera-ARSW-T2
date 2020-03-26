@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  * @author jm_14
  */
 @Service
-public class Covid19APIService {
+public class CoronavirusStatsService {
     @Autowired
     HttpConnectionService httpConnectionService;
     public String getCovidAllCountries(){
@@ -30,7 +30,7 @@ public class Covid19APIService {
               JSONArray covid19array = new JSONArray(data.get("covid19Stats").toString());
               return covid19array.toString();
         } catch (UnirestException ex) {
-            Logger.getLogger(Covid19APIService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoronavirusStatsService.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
       
@@ -44,7 +44,7 @@ public class Covid19APIService {
             return covid19array.toString();
             
         } catch (UnirestException ex) {
-            Logger.getLogger(Covid19APIService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CoronavirusStatsService.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }

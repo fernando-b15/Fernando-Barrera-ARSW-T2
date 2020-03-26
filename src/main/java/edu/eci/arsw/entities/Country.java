@@ -5,6 +5,7 @@
  */
 package edu.eci.arsw.entities;
 
+import java.time.LocalDateTime;
 import org.json.JSONObject;
 
 /**
@@ -16,7 +17,7 @@ public class Country {
     private int deaths;
     private int recovered;
     private JSONObject jsonObject;
-  
+
 
     public Country(JSONObject jsonObject){
         this.jsonObject = jsonObject;

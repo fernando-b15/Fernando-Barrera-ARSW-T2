@@ -5,7 +5,7 @@
  */
 package edu.eci.arsw.controller;
 
-import edu.eci.arsw.servive.Covid19APIService;
+import edu.eci.arsw.servive.CoronavirusStatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @author jm_14
  */
 @RestController
-@RequestMapping("/covid19")
-public class Covid19APIController {
+@RequestMapping("/getAllCases")
+public class CoronovirusStatsController {
     @Autowired
-    Covid19APIService covid19apiservice;
+    CoronavirusStatsService covid19apiservice;
 
      @RequestMapping (method = RequestMethod.GET )
       public ResponseEntity<?> getAllCovid19(){
@@ -34,7 +34,7 @@ public class Covid19APIController {
 
         }
     }
-       @RequestMapping(value = "/{country}",method = RequestMethod.GET)
+       @RequestMapping(value = "/getCasesByCountry/{country}",method = RequestMethod.GET)
     public ResponseEntity<?> getCasesByCountry(@PathVariable String country){
 
         try {
