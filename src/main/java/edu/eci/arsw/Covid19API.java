@@ -7,6 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+import edu.eci.arsw.servive.HttpConnectionService;
+
 @Controller
 @SpringBootApplication
 @ComponentScan("edu.eci.arsw")
@@ -21,4 +24,12 @@ public class Covid19API{
     public static void main(String[] args) {
         SpringApplication.run(Covid19API.class, args);
     }
+    /**
+    @Bean
+    public CommandLineRunner demo(HttpConnectionService service) {
+      return (args) -> {
+          System.out.println(service.getCovid19ByCountry("Colombia"));
+        };   
+    }
+    */
 }
