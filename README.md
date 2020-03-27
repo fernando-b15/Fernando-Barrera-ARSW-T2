@@ -2,6 +2,12 @@
 ## Links del proyecto
    1.[Link Despliegue Heroku](https://fernando-barrera-arsw-t2.herokuapp.com)\
    2.[Link Repositorio](https://github.com/fernando-b15/Fernando-Barrera-ARSW-T2)
+   
+## Intrucciones de compila
+Intruccion de compilacion\
+`mvn package`\
+Instruccion de Ejecucion de SprinBootApplication\
+`mvn spring-boot:run`
 ## Preparación para el Parcial
 
 Con el objetivo de preparar el examen final del segundo tercio, por favor siga las siguientes instrucciones.
